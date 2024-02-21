@@ -1,0 +1,14 @@
+*{
+
+     font-family: "Roboto", sans-serif;;
+
+}
+
+.custom-background{
+ background-color: rgb(246, 206, 158);
+}
+
+.heading-background{
+    background-color: rgb(8, 8, 126);
+    padding: 2px;
+}
