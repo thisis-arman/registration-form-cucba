@@ -82,6 +82,13 @@ $("#formSubmit").click(function (e) {
   });
 });
 
+
+ const phoneInputField = document.querySelector("#mobileNo");
+ const phoneInput = window.intlTelInput(phoneInputField, {
+   utilsScript:
+     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+ });
+
 /* 
 $(document).ready(function () {
   $.ajax({
