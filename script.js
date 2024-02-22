@@ -22,6 +22,8 @@ $(document).ready(function () {
   });
 });
 
+
+
 function getDateOfSubmission() {
   const date = new Date();
   let day = date.getDate();
@@ -35,43 +37,40 @@ getDateOfSubmission();
 
 $("#registrationForm").validate({
   rules: {
-    mobile:{
-      required:true,
-      phoneInput:true,
-    },
-    name: {required:true},
-    email:{
+    mobile: {
       required: true,
-      email:true,
+      phoneInput: true,
     },
-
-
-
-
+    name: { required: true },
+    email: {
+      required: true,
+      email: true,
+    },
   },
-
-
 
   messages: {
     name: "Please enter your name",
   },
-  mobile:{
-    required:"Please enter your phone number",
-    phoneInput:"Please enter valid phone number",
+  mobile: {
+    required: "Please enter your phone number",
+    phoneInput: "Please enter valid phone number",
   },
-  email:{
-    required:"Please enter your email",
-    email:"Please enter valid email"
+  email: {
+    required: "Please enter your email",
+    email: "Please enter valid email",
   },
-  bloodGroup:"Please select your blood group",
-  academicDept:"Please select your department",
-  batch:{
-    required:"Please Enter your Batch",
-    max:"must be in between 60 "
-  }, submitHandler: function (form) {
+  bloodGroup: "Please select your blood group",
+  academicDept: "Please select your department",
+  batch: {
+    required: "Please Enter your Batch",
+    max: "must be in between 60 ",
+  },
+  submitHandler: function (form) {
     form.submit();
   },
 });
+
+
 
 $("#formSubmit").click(function (e) {
   e.preventDefault();
@@ -153,9 +152,6 @@ $("#formSubmit").click(function (e) {
     },
   });
 });
-
-
-
 
 const phoneInputField = document.querySelector("#mobileNo");
 const phoneInput = window.intlTelInput(phoneInputField, {
