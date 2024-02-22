@@ -7,7 +7,7 @@ $(document).ready(function () {
     url: "./districts.json",
     type: "GET",
     success: function ({ data }) {
-      $("#inputState").focus(function () {
+      $(".district-field").focus(function () {
         let dropdown = $(".district-field");
         dropdown.empty();
         dropdown.append('<option value="">Select District</option>');
@@ -33,6 +33,46 @@ function getDateOfSubmission() {
 }
 getDateOfSubmission();
 
+$("#registrationForm").validate({
+  rules: {
+    mobile:{
+      required:true,
+      phoneInput:true,
+    },
+    name: {required:true},
+    email:{
+      required: true,
+      email:true,
+    },
+
+
+
+
+  },
+
+
+
+  messages: {
+    name: "Please enter your name",
+  },
+  mobile:{
+    required:"Please enter your phone number",
+    phoneInput:"Please enter valid phone number",
+  },
+  email:{
+    required:"Please enter your email",
+    email:"Please enter valid email"
+  },
+  bloodGroup:"Please select your blood group",
+  academicDept:"Please select your department",
+  batch:{
+    required:"Please Enter your Batch",
+    max:"must be in between 60 "
+  }, submitHandler: function (form) {
+    form.submit();
+  },
+});
+
 $("#formSubmit").click(function (e) {
   e.preventDefault();
 
@@ -53,82 +93,72 @@ $("#formSubmit").click(function (e) {
   let studentId = $("#studentId").val();
   const arrOfStudentId = studentId.split("");
   if (arrOfStudentId.length != 8) {
-    console.log("student id must be eight number");
+    $("#showStudentIdError").text("student id must be eight number");
   }
-
   let passingYear = $("#passingYear").val();
   let homeAddress = $("#homeAddress").val();
   let presentDistrict = $("#presentDistrict").val();
   let presentPostOffice = $("#presentPostOffice").val();
+  let permanentHouseAddress = $("#permanentHouseAddress").val();
+  let permanentDistrict = $("#permanentDistrict").val();
+  let permanentPostOffice = $("#permanentPostOffice").val();
+  let profession = $("#profession").val();
+  let designation = $("#designation").val();
+  let organization = $("#organization").val();
+  let professionalAddress = $("#professionalAddress").val();
+  let telephoneNo = $("#telephoneNo").val();
+  let professionalEmail = $("#professionalEmail").val();
+  let registrationFee = $("#registrationFee").text();
 
   console.log({
-    mobile,
-    name,
-    fatherName,
-    motherName,
-    dateOfBirth,
-    bloodGroup,
-    email,
-    facebookId,
-    academicDept,
-    certificateFile,
-    session,
-    batch,
-    studentId,
-    passingYear,
-    homeAddress,
-    presentDistrict,
-    presentPostOffice,
-  });
-});
+    registrationFee: parseInt(registrationFee),
+    personalInfo: {
+      mobile,
+      name,
+      fatherName,
+      motherName,
+      dateOfBirth,
+      bloodGroup,
+      email,
+      facebookId,
+    },
+    educationalInfo: [
+      {
+        studentId,
+        academicDept,
+        certificateFile,
+        session,
+        batch,
+        passingYear,
+      },
+    ],
 
-
- const phoneInputField = document.querySelector("#mobileNo");
- const phoneInput = window.intlTelInput(phoneInputField, {
-   utilsScript:
-     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
- });
-
-/* 
-$(document).ready(function () {
-  $.ajax({
-    url: "./districts.json",
-    type: "GET",
-    success: function ({ data }) {
-      $("#inputState").focus(function () {
-        let districts = data.map((district) => {
-         let options =  $("<option></option>").append(`${district.name}`)
-         console.log(options)
-         
-         
-        });
-        // console.log(districts);
-      });
+    presentAddress: {
+      homeAddress,
+      presentDistrict,
+      presentPostOffice,
+    },
+    permanentAddress: {
+      permanentHouseAddress,
+      permanentDistrict,
+      permanentPostOffice,
+    },
+    professionalInfo: {
+      profession,
+      designation,
+      organization,
+      telephoneNo,
+      professionalAddress,
+      professionalEmail,
     },
   });
 });
- */
-/* 
 
 
-getDistricts();
 
-function getDistricts() {
-  $.post(
-    "./districts.json",
-    {},
-    (response) => {
-      if (response.error) {
-        toastr.error(response.message);
-      } else {
-        showDistricts(response.data);
-      }
-    },
-    "json"
-  );
-}
 
-function showDistricts(data) {
-  console.log(data);
-}
- */
+const phoneInputField = document.querySelector("#mobileNo");
+const phoneInput = window.intlTelInput(phoneInputField, {
+  utilsScript:
+    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+});

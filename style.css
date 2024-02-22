@@ -12,3 +12,14 @@
     background-color: rgb(8, 8, 126);
     padding: 2px;
 }
+
+.error {
+    color: red;
+    
+    /* position: relative; */
+    /* background: #e5d9d9; */
+    /* right: 200px; */
+    /* z-index: ; */
+    /* margin-left: 300px; */
+ 
+}
