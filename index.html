@@ -23,8 +23,8 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <!-- INTERNATIONAL PHONE CONTACT -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+ <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> -->
 
     <title>Bootstrap Form Layout</title>
 </head>
@@ -68,7 +68,7 @@
                 <!-- <input type="date" class="form" name="" id="dateOfSubmission"> -->
             </div>
 
-            <div class="text-center col-md-6 col-12">
+            <div class="text-center col-lg-6 col-12">
                 <p class="text-primary ">Star (<span class="text-danger font-weight-bold">*</span>) marked
                     fields are mandatory</p>
                 <p>Please fill-up the Registration form in English </p>
@@ -88,13 +88,14 @@
                     <div class="form-group d-flex  w-100 flex-wrap">
                         <label for="mobileNo" class="col-md-3">Mobile <span
                                 class="text-danger font-weight-bold">*</span></label>
-                        <input type="tel"  required class="form-control w-100 col-md-9" name="mobile_number" id="mobileNo"
-                            placeholder="Type your number">
-                        <small class="error"></small>
+                        <input type="tel" maxlength="11"  class="form-control w-100 col-md-9"
+                            name="mobile_number" id="mobileNo" placeholder="Type your number" required>
+                        <!-- <small class="error"></small> -->
                     </div>
                     <div class="form-group d-flex  flex-wrap">
                         <label for="firstName" class="col-md-3">Name</label>
-                        <input type="text" name="name" class="form-control col-md-9 " id="name" placeholder="Type your name">
+                        <input type="text" name="name" class="form-control col-md-9 " id="name"
+                            placeholder="Type your name">
                     </div>
                     <div class="form-group d-flex  flex-wrap">
                         <label for="firstName" class="col-md-3">Father's Name</label>
@@ -103,26 +104,27 @@
                     </div>
                     <div class="form-group d-flex  flex-wrap">
                         <label for="firstName" class="col-12 col-md-3 ">Mother's Name</label>
-                        <input type="text" name="mother_name" class="form-control col-md-9 " name="mName" id="motherName"
-                            placeholder="Type your Mother's name">
+                        <input type="text" name="mother_name" class="form-control col-md-9 " name="mName"
+                            id="motherName" placeholder="Type your Mother's name">
                     </div>
 
                     <!-- DOUBLE  -->
 
                     <!-- Date of Birth -->
 
-                    <div class="d-md-flex row justify-content-evenly">
+                    <div class="d-md-flex flex-wrap row justify-content-evenly">
 
-                        <div class="form-group d-flex  flex-wrap justify-content-between col-md-6 col-12">
+                        <div class="form-group d-flex  flex-wrap justify-content-between col-lg-6 col-12">
                             <label for="firstName" class="col-md-3">Date Of Birth</label>
-                            <input type="Date" name="date_of_birth" class="form-control col-md-6 " id="dateOfBirth" placeholder="">
+                            <input type="Date" name="date_of_birth" class="form-control col-lg-6 " id="dateOfBirth"
+                                placeholder="">
                         </div>
 
                         <!-- Blood Group -->
-                        <div class="form-group d-flex  flex-wrap justify-content-end col-md-6 col-12 ">
+                        <div class="form-group d-flex  flex-wrap justify-content-lg-end col-lg-6 col-12 ">
                             <label for="blood-group" class="col-md-4 ">Blood Group <span
                                     class="text-danger font-weight-bold">*</span></label>
-                            <select id="bloodGroup" name="blood_group" class=" form-select  col-md-6  form-control  ">
+                            <select id="bloodGroup" name="blood_group" class=" form-select  col-lg-6  form-control  ">
                                 <option selected>Select Any</option>
                                 <option>AB+</option>
                                 <option>A+</option>
@@ -139,16 +141,16 @@
 
                     <!-- Email -->
                     <div class="d-md-flex row justify-content-evenly">
-                        <div class="form-group d-flex  flex-wrap justify-content-between col-md-6 col-12">
+                        <div class="form-group d-flex  flex-wrap justify-content-between col-lg-6 col-12">
                             <label for="email" class="col-md-4">Email <span class="text-danger ">*</span></label>
-                            <input type="email" name="email"  class="form-control col-md-6" id="email"
+                            <input type="email" name="email" class="form-control col-lg-6" id="email"
                                 placeholder="Type Your email..">
                         </div>
 
                         <!-- Facebook Id  -->
-                        <div class="form-group d-flex   flex-wrap justify-content-end col-md-6 col-12 ">
-                            <label for="firstName"  class="col-md-4">Facebook ID</label>
-                            <input type="text" name="facebook_id" class="form-control col-md-6 " id="facebookID"
+                        <div class="form-group d-flex   flex-wrap justify-content-lg-end col-lg-6 col-12 ">
+                            <label for="firstName" class="col-md-4">Facebook ID</label>
+                            <input type="text" name="facebook_id" class="form-control col-lg-6 " id="facebookID"
                                 placeholder="Type your Facebook ID">
                         </div>
 
@@ -169,12 +171,13 @@
                     <div>
                         <div class=" row justify-content-evenly">
 
-                            <div class="form-group d-flex  flex-wrap justify-content-between col-md-6 ">
+                            <div class="form-group d-flex  flex-wrap justify-content-between col-lg-6 ">
                                 <label for="dept_name" class="col-md-4">Your Department <span
                                         class="text-danger font-weight-bold">*</span></label>
-                                <!-- <input type="Date" class="form-control col-md-6" id="firstName"
+                                <!-- <input type="Date" class="form-control col-lg-6" id="firstName"
                                     placeholder="Enter your first name"> -->
-                                <select id="academicDept" name="academic_department" class=" form-select col-md-6 form-control ">
+                                <select id="academicDept" name="academic_department"
+                                    class=" form-select col-lg-6 form-control ">
                                     <option selected>Select Any</option>
                                     <option>Accounting and Information system</option>
                                     <option>Finance Banking and Insurance </option>
@@ -182,10 +185,10 @@
                                     <option>Management </option>
                                 </select>
                             </div>
-                            <div class="form-group d-flex  flex-wrap justify-content-end col-md-6  col-12 ">
+                            <div class="form-group d-flex  flex-wrap justify-content-lg-end col-lg-6  col-12 ">
                                 <label for="marksheet" class="col-md-4">Marksheet/Certificate</label>
 
-                                <input type="file" name="marksheets" class="form-control col-md-6" id="certificateFile">
+                                <input type="file" name="marksheets" class="form-control col-lg-6" id="certificateFile">
 
                             </div>
 
@@ -194,11 +197,11 @@
                         <!-- Session -->
 
                         <div class=" row justify-content-evenly">
-                            <div class="form-group d-flex  flex-wrap justify-content-between col-md-6 col-12">
-                                <label for="firstName"  class="col-md-4">Session <span
+                            <div class="form-group d-flex  flex-wrap justify-content-between col-lg-6 col-12">
+                                <label for="firstName" class="col-md-4">Session <span
                                         class="text-danger font-weight-bold">*</span></label>
 
-                                <select id="session" name="session" class=" form-select  form-control col-md-6">
+                                <select id="session" name="session" class=" form-select  form-control col-lg-6">
                                     <option selected>Select Session</option>
                                     <option>2022-2023</option>
                                     <option>2021-2022</option>
@@ -211,11 +214,11 @@
 
                             <!-- Batch -->
 
-                            <div class="form-group d-flex  flex-wrap justify-content-end col-md-6 col-12 ">
+                            <div class="form-group d-flex  flex-wrap justify-content-lg-end col-lg-6 col-12 ">
                                 <label for="firstName" class="col-md-4">Batch <span
                                         class="text-danger font-weight-bold">*</span></label>
 
-                                <select id="batch" name="batch_no" class=" form-select  form-control  col-md-6">
+                                <select id="batch" name="batch_no" class=" form-select  form-control  col-lg-6">
                                     <option selected>Select batch</option>
                                     <option>40</option>
                                     <option>41</option>
@@ -228,19 +231,20 @@
 
                         </div>
                         <div class="row justify-content-evenly">
-                            <div class="form-group d-flex  flex-wrap justify-content-between col-md-6 col-12">
+                            <div class="form-group d-flex  flex-wrap justify-content-between col-lg-6 col-12">
                                 <label for="firstName" class="col-md-4">Student ID <span
                                         class="text-danger font-weight-bold">*</span></label>
-                                <input minlength="8" maxlength="8" name="student_id" type="number" class="form-control col-md-6"
-                                    id="studentId" placeholder="Type your Student ID">
+                                <input minlength="8" maxlength="8" name="student_id" type="number"
+                                    class="form-control col-lg-6" id="studentId" placeholder="Type your Student ID"
+                                    required>
 
                             </div>
 
 
-                            <div class="form-group d-flex  flex-wrap justify-content-end col-md-6 col-12 ">
+                            <div class="form-group d-flex  flex-wrap justify-content-lg-end col-lg-6 col-12 ">
                                 <label for="firstName" class="col-md-4">Passing Year</label>
-                                <input type="number" max="2024" min="1966" name="passing_year" class="form-control col-md-6 "
-                                    id="passingYear" placeholder="Type Passing year">
+                                <input type="number" max="2024" min="1966" name="passing_year"
+                                    class="form-control col-lg-6 " id="passingYear" placeholder="Type Passing year">
                             </div>
 
                         </div>
@@ -261,8 +265,8 @@
                             <div class="py-2">
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="houseAddress" class="col-md-3">House no, road no,ward no</label>
-                                    <textarea class="form-control  col-md-9" name="present_home_address" placeholder="Leave a comment here"
-                                        id="homeAddress" required></textarea>
+                                    <textarea class="form-control  col-md-9" name="present_home_address"
+                                        placeholder="Leave a comment here" id="homeAddress" required></textarea>
                                 </div>
 
                                 <!-- District -->
@@ -270,7 +274,7 @@
                                 <div class=" ">
                                     <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                         <label for="district" class="col-md-3">District</label>
-                                    
+
                                         <select id="presentDistrict" required name="present_district"
                                             class="district-field form-select  col-md-9 form-control form-control ">
                                             <option selected>Select District</option>
@@ -284,7 +288,7 @@
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">Post Office</label>
                                     <select id="presentPostOffice" required name="present_post_office"
-                                        class=" form-select  col-md-9 form-control form-control ">
+                                        class=" form-select  col-md-9 form-control form-control post-office-field ">
                                         <option selected>Select Any</option>
                                         <option>post office 101</option>
                                         <option>post office 101</option>
@@ -312,16 +316,18 @@
                                 <!-- House no, road no,ward no -->
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="houseAddress" class="col-md-3">House no, road no,ward no</label>
-                                    <textarea class="form-control  col-md-9" required name="permanent_house_address" placeholder="Leave a comment here"
-                                        id="permanentHouseAddress" style="height: 100px"></textarea>
+                                    <textarea class="form-control  col-md-9" name="permanent_house_address"
+                                        placeholder="Leave a comment here" id="permanentHouseAddress"
+                                        style="height: 100px" required></textarea>
                                 </div>
                                 <!-- District -->
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">District</label>
                                     <!-- <input type="text" class="form-control col-md-9 " id="firstName"
                                         placeholder="Enter your first name"> -->
-                                    <select id="permanentDistrict" required name="permanent_district"
-                                        class=" district-field form-select col-md-9  form-control form-control ">
+                                    <select id="permanentDistrict" name="permanent_district"
+                                        class=" district-field form-select col-md-9  form-control form-control "
+                                        required>
                                         <option selected>Select district</option>
                                         <option value="">Chittagong</option>
 
@@ -330,8 +336,8 @@
                                 <!-- POST OFFICE -->
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">Post Office</label>
-                                    <select id="permanentPostOffice" required name="post_office"
-                                        class=" form-select col-md-9 form-control form-control ">
+                                    <select id="permanentPostOffice" name="post_office"
+                                        class=" form-select col-md-9 form-control form-control post-office-field " required>
                                         <option selected>Select post office</option>
                                         <option>post office 101</option>
                                         <option>post office 101</option>
@@ -364,38 +370,39 @@
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">Profession <span
                                             class="text-danger font-weight-bold">*</span></label>
-                                    <input type="text" name="profession" class="form-control col-md-9 " required id="profession"
-                                        placeholder="Type your profession here..">
+                                    <input type="text" name="profession" class="form-control col-md-9 " required
+                                        id="profession" placeholder="Type your profession here..">
                                 </div>
                                 <!--  -->
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="designation" class="col-md-3">Designation</label>
-                                    <input type="text" name="designation" class="form-control col-md-9 " id="designation"
-                                        placeholder="Type your designation here..">
+                                    <input type="text" name="designation" class="form-control col-md-9 "
+                                        id="designation" placeholder="Type your designation here..">
                                 </div>
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="organization" class="col-md-3">Organizations</label>
-                                    <input type="text" name="organization" class="form-control col-md-9 " id="organization"
-                                        placeholder="Type your Organizations here..">
+                                    <input type="text" name="organization" class="form-control col-md-9 "
+                                        id="organization" placeholder="Type your Organizations here..">
                                 </div>
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="profession_address" class="col-md-3">Professional Address</label>
-                                    <textarea type="text" name="profession_address" class="form-control col-md-9 " id="professionalAddress"
-                                        placeholder="Your Professional Address here.." id="" cols="10"
-                                        rows="4"></textarea>
+                                    <textarea type="text" name="profession_address" class="form-control col-md-9 "
+                                        id="professionalAddress" placeholder="Your Professional Address here.." id=""
+                                        cols="10" rows="4"></textarea>
                                 </div>
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">Telephone No </label>
-                                    <input type="tel" name="telephone_no" class="form-control col-md-9 " id="telephoneNo"
-                                        placeholder="Your Organizational Telephone here..">
+                                    <input type="tel" name="telephone_no" class="form-control col-md-9 "
+                                        id="telephoneNo" placeholder="Your Organizational Telephone here..">
                                 </div>
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">Email </label>
-                                    <input type="email" name="professional_email" class="form-control col-md-9 " id="professionalEmail"
-                                        placeholder="Your Organizational email here..">
+                                    <input type="email" name="professional_email" class="form-control col-md-9 "
+                                        id="professionalEmail" placeholder="Your Organizational email here..">
                                 </div>
 
                             </div>
+                            
 
 
 
@@ -406,7 +413,8 @@
                     </div>
                     <div class=" d-flex  flex-wrap justify-content-center align-items-center py-4">
                         <h4>Available Fees: </h4>
-                        <span  class="px-5 py-2 mx-2 bg-white rounded shadow">৳ <span id="registrationFee">2000</span></span>
+                        <span class="px-5 py-2 mx-2 bg-white rounded shadow">৳ <span
+                                id="registrationFee">2000</span></span>
                     </div>
 
 
@@ -429,16 +437,14 @@
 
 
     <!-- JQUERY  -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <!-- JQUERY VALIDATORS -->
-       <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-
-    <!-- BOOTSTRAP -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- JS FILE -->
-    <script src="./script.js"></script>
+    
+   
+        
+        <!-- BOOTSTRAP -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- JS FILE -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="./script.js"></script>
 
 </body>
 
