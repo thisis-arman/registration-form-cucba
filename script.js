@@ -1,23 +1,24 @@
-
-
 $(document).ready(function () {
   // Function to fetch district data
+
   function fetchDistricts() {
-    $.ajax({
-      url: "./districts.json",
-      type: "GET",
-      success: function ({ data }) {
-        populateDistricts(data);
-      },
-    });
+    $.get("./districts.json", {}, function (data, status) {
+      // console.log({ data });
+      populateDistricts(data);
+      // console.log(status);
+    }).fail(function (error) {
+      // console.error("Error:", error);
+    }),
+      JSON;
   }
 
   // Function to populate districts
-  function populateDistricts(districts) {
+  function populateDistricts({ data }) {
+    // console.log("Populating", data);
     let districtDropdown = $(".district-field");
     districtDropdown.empty();
     districtDropdown.append('<option value="">Select District</option>');
-    districts.forEach((district) => {
+    data.forEach((district) => {
       let option = $("<option></option>")
         .attr("value", district.name)
         .text(district.name + " - " + district.bn_name);
@@ -36,42 +37,43 @@ $(document).ready(function () {
 
   // Function to fetch and populate post offices
   function fetchPostOffices(selectedDistrict) {
-    $.ajax({
-      url: "./postOffice.json",
-      type: "GET",
-      success: function ({ data }) {
-        const singlePostOffice = data.map(
-          (postOffice) =>
-            postOffice.en?.district === selectedDistrict && postOffice
-        );
-        if (singlePostOffice.en != false) {
-          // console.log({ singlePostOffice });
-          populatePostOffices(singlePostOffice);
-        }
-      },
+    // console.log({ selectedDistrict });
+
+    $.get("./postOffice.json", function ({ data }, status) {
+      const singlePostOffice = data.map(
+        (postOffice) => postOffice?.district === selectedDistrict && postOffice
+      );
+      if (singlePostOffice != false) {
+        // console.log({ singlePostOffice });
+        populatePostOffices(singlePostOffice);
+      }
+    }).fail(function (error) {
+      // console.error("Error:", error);
     });
   }
 
   // Function to populate post offices based on selected district
+
   function populatePostOffices(postOffices) {
-    // console.log({ postOffices });
     let postOfficeDropdown = $(".post-office-field");
     postOfficeDropdown.empty();
-    postOfficeDropdown.append('<option value="">Select Post Office</option>');
+    postOfficeDropdown.append('<option value="">select post office </option>');
 
-    if (postOffices) {
-      postOffices.forEach((postOffice) => {
-        let option = $("<option></option>")
-          .attr("value", postOffice?.en?.postcode)
-          .text(
-            postOffice.en &&
-              `${postOffice?.en?.postcode} -
-            ${postOffice.en?.suboffice}, ${postOffice.en?.thana}, ${postOffice.en?.district}`
-          );
-        // console.log(postOffice);
-        postOfficeDropdown.append(option);
-      });
-    }
+    const filteredPostOffices = $.grep(postOffices, function (postOffice) {
+      return postOffice && postOffice;
+    });
+
+    $.each(filteredPostOffices, function (i, postOffice) {
+      // console.log({ postOffice });
+      let option = $("<option></option>")
+        .attr("value", postOffice?.postcode)
+        .text(
+          postOffice &&
+            `${postOffice?.postcode} -
+        ${postOffice?.suboffice}, ${postOffice?.thana}, ${postOffice?.district}`
+        );
+      postOfficeDropdown.append(option);
+    });
   }
 
   fetchDistricts();
@@ -167,11 +169,90 @@ $(document).ready(function () {
       },
     });
   });
-});
 
-/* const phoneInputField = document.querySelector("#mobileNo");
-const phoneInput = window.intlTelInput(phoneInputField, {
-  utilsScript:
-    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  // For international Contacts
+  const phoneInputField = document.querySelector("#mobileNo");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+
+  // Handling Profile Image
+
+  /*  $("#image").on("change", function () {
+
+    const image = $(this).val();
+    console.log({image})
+
+  }) */
+  
+
+   var previewDummy = document.getElementById('previewDummy');
+        var imageInput = document.getElementById('imageInput');
+        var cropImage = document.getElementById('cropImage');
+        var cropButton = document.getElementById('cropButton');
+        var cropper;
+
+        // Click event on the preview dummy image
+        $(previewDummy).click(function () {
+            // Clear input file
+            imageInput.value = '';
+
+            // Show the Bootstrap modal
+            $('#cropModal').modal('show');
+        });
+
+        // Change event on the input file
+        $(imageInput).change(function (event) {
+            var file = event.target.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // Display selected image in modal for cropping
+                    $('#cropImage').attr('src', e.target.result);
+
+                    // Initialize Cropper.js after image loaded
+                    cropper = new Cropper(cropImage, {
+                        aspectRatio: 1, // Set 1:1 aspect ratio for square cropping
+                        viewMode: 1, // Set to restrict the crop box to the container
+                        autoCropArea: 1 // Automatically set crop box to cover the whole image
+                    });
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Click event on the crop button
+        $(cropButton).click(function () {
+            // Get the cropped data (base64 encoded)
+            var croppedDataUrl = cropper.getCroppedCanvas().toDataURL();
+
+            // Now you can use 'croppedDataUrl' as needed
+            console.log('Cropped Image Data URL:', croppedDataUrl);
+
+            // Reset Cropper for the next use
+            cropper.destroy();
+            cropper = null;
+
+            // Close the modal
+            $('#cropModal').modal('hide');
+
+            // Display the cropped image as a preview on your page
+            previewDummy.src = croppedDataUrl;
+        });
+
+        // Hide the modal event (cleanup)
+        $('#cropModal').on('hidden.bs.modal', function () {
+            // Reset input file value
+            imageInput.value = '';
+
+            // Reset Cropper for the next use
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
+        });
+  // TESTING THE POST METHOD
 });
- */

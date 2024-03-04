@@ -9,13 +9,9 @@
 
     <!-- TOASTER  -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,9 +19,10 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <!-- INTERNATIONAL PHONE CONTACT -->
- <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <!-- CROPPER  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css" />
     <title>Bootstrap Form Layout</title>
 </head>
 
@@ -60,7 +57,7 @@
         </section>
 
         <div
-            class=" row  mx-auto w-100 text-center text-sm-left justify-content-md-between justify-content-center  align-items-center   my-3">
+            class=" row  mx-auto w-100 text-sm-center text-center justify-content-md-between justify-content-center  align-items-center   my-3">
 
             <div class="col-md-3 col-12 flex justify-content-center align-items-center ">
                 <label class="font-weight-bold" for="">Date : </label>
@@ -75,37 +72,81 @@
             </div>
 
             <div class=" col-md-2 col-12 ">
+        <img id="previewDummy" src="https://via.placeholder.com/150" alt="Preview Dummy Image" style="cursor: pointer;">
 
-                <img class="" src="https://i.ibb.co/5cQcVKc/dummy-avater.png" alt="">
-                <br>
-                <caption class="font-weight-bold text-danger border">Alumni Photo</caption>
+                    <br>
+                    <p style="cursor: pointer;"  id="uploadPhoto">Upload Photo</p>
+                <!-- <caption class="font-weight-bold text-danger border">Alumni Photo</caption> -->
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12 ">
+
+<!-- Bootstrap Modal for Image Selection and Cropping -->
+<div class="modal fade" id="cropModal" tabindex="-1" role="dialog" aria-labelledby="cropModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cropModalLabel">Select and Crop Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="file" id="imageInput" accept="image/*">
+                <img id="cropImage" alt="Crop Preview" >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="cropButton">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="">
+            <div class=" ">
                 <form id="registrationForm">
-                    <div class="form-group d-flex  w-100 flex-wrap">
-                        <label for="mobileNo" class="col-md-3">Mobile <span
-                                class="text-danger font-weight-bold">*</span></label>
-                        <input type="tel" maxlength="11"  class="form-control w-100 col-md-9"
-                            name="mobile_number" id="mobileNo" placeholder="Type your number" required>
-                        <!-- <small class="error"></small> -->
+
+
+                    <div class="form-group  row ">
+                        <div class="col-md-3">
+                            <label for="mobileNo" class="">Mobile <span
+                                    class="text-danger font-weight-bold">*</span></label>
+                        </div>
+                        <div class="col-md-9 ">
+                            <input type="tel" maxlength="11" class="form-control  " name="mobile_number" id="mobileNo"
+                                placeholder="Type your number" required>
+                        </div>
+
                     </div>
-                    <div class="form-group d-flex  flex-wrap">
-                        <label for="firstName" class="col-md-3">Name</label>
-                        <input type="text" name="name" class="form-control col-md-9 " id="name"
-                            placeholder="Type your name">
+
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="firstName">Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="name" class="form-control  " id="name"
+                                placeholder="Type your name">
+                        </div>
                     </div>
-                    <div class="form-group d-flex  flex-wrap">
-                        <label for="firstName" class="col-md-3">Father's Name</label>
-                        <input type="text" name="father_name" class="form-control col-md-9 " id="fatherName"
-                            placeholder="Type your father's name">
+
+
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="firstName" class="">Father's Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="father_name" class="form-control  " id="fatherName"
+                                placeholder="Type your father's name">
+                        </div>
                     </div>
-                    <div class="form-group d-flex  flex-wrap">
-                        <label for="firstName" class="col-12 col-md-3 ">Mother's Name</label>
-                        <input type="text" name="mother_name" class="form-control col-md-9 " name="mName"
-                            id="motherName" placeholder="Type your Mother's name">
+                    <div class="form-group row">
+                        <div class="col-12 col-md-3 ">
+                            <label for="motherName">Mother's Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="mother_name" class="form-control  " name="mName" id="motherName"
+                                placeholder="Type your Mother's name">
+                        </div>
                     </div>
 
                     <!-- DOUBLE  -->
@@ -115,15 +156,21 @@
                     <div class="d-md-flex flex-wrap row justify-content-evenly">
 
                         <div class="form-group d-flex  flex-wrap justify-content-between col-lg-6 col-12">
-                            <label for="firstName" class="col-md-3">Date Of Birth</label>
-                            <input type="Date" name="date_of_birth" class="form-control col-lg-6 " id="dateOfBirth"
-                                placeholder="">
+                            <div class="col-md-3 col-12">
+                                <label for="firstName">Date Of Birth</label>
+                            </div>
+                            <div class="col-lg-6 ">
+                                <input type="Date" name="date_of_birth" class="form-control " id="dateOfBirth"
+                                    placeholder="">
+                            </div>
                         </div>
 
                         <!-- Blood Group -->
                         <div class="form-group d-flex  flex-wrap justify-content-lg-end col-lg-6 col-12 ">
-                            <label for="blood-group" class="col-md-4 ">Blood Group <span
-                                    class="text-danger font-weight-bold">*</span></label>
+                            <div class="col-md-4 ">
+                                <label for="blood-group" >Blood Group <span
+                                        class="text-danger font-weight-bold">*</span></label>
+                            </div>
                             <select id="bloodGroup" name="blood_group" class=" form-select  col-lg-6  form-control  ">
                                 <option selected>Select Any</option>
                                 <option>AB+</option>
@@ -337,7 +384,8 @@
                                 <div class="form-group align-items-center py-1 d-flex  flex-wrap">
                                     <label for="firstName" class="col-md-3">Post Office</label>
                                     <select id="permanentPostOffice" name="post_office"
-                                        class=" form-select col-md-9 form-control form-control post-office-field " required>
+                                        class=" form-select col-md-9 form-control form-control post-office-field "
+                                        required>
                                         <option selected>Select post office</option>
                                         <option>post office 101</option>
                                         <option>post office 101</option>
@@ -402,7 +450,7 @@
                                 </div>
 
                             </div>
-                            
+
 
 
 
@@ -437,14 +485,14 @@
 
 
     <!-- JQUERY  -->
-    
-   
-        
-        <!-- BOOTSTRAP -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- JS FILE -->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+
+
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JS FILE -->
+    <script src="./script.js"></script>
 
 </body>
 

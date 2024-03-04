@@ -2,175 +2,137 @@
   "error": false,
   "data": [
     {
-      "en": {
-        "division": "Dhaka",
-        "district": "Dhaka",
-        "thana": "Keraniganj ",
-        "suboffice": "Ati ",
-        "postcode": "1312 "
-      }
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "thana": "Keraniganj",
+      "suboffice": "Ati",
+      "postcode": "1312 "
     },
     {
-      "en": {
-        "division": "Dhaka",
-        "district": "Dhaka",
-        "thana": "Keraniganj ",
-        "suboffice": "Dhaka Jute Mills ",
-        "postcode": "1311 "
-      }
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "thana": "Keraniganj",
+      "suboffice": "Dhaka Jute Mills",
+      "postcode": "1311 "
     },
     {
-      "en": {
-        "division": "Dhaka",
-        "district": "Dhaka",
-        "thana": "Keraniganj ",
-        "suboffice": "Kalatia ",
-        "postcode": "1313 "
-      }
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "thana": "Keraniganj",
+      "suboffice": "Kalatia",
+      "postcode": "1313 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Brahamanbaria Sadar ",
-        "suboffice": "Brahamanbaria Sadar ",
-        "postcode": "3400 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Brahamanbaria Sadar",
+      "suboffice": "Brahamanbaria Sadar",
+      "postcode": "3400 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Brahamanbaria Sadar ",
-        "suboffice": "Poun ",
-        "postcode": "3404 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Brahamanbaria Sadar",
+      "suboffice": "Poun",
+      "postcode": "3404 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Brahamanbaria Sadar ",
-        "suboffice": "Talshahar ",
-        "postcode": "3401 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Brahamanbaria Sadar",
+      "suboffice": "Talshahar",
+      "postcode": "3401 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Kasba ",
-        "suboffice": "Chandidar ",
-        "postcode": "3462 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Kasba",
+      "suboffice": "Chandidar",
+      "postcode": "3462 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Kasba ",
-        "suboffice": "Chargachh ",
-        "postcode": "3463 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Kasba",
+      "suboffice": "Chargachh",
+      "postcode": "3463 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Kasba ",
-        "suboffice": "Gopinathpur ",
-        "postcode": "3464 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Kasba",
+      "suboffice": "Gopinathpur",
+      "postcode": "3464 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Kasba ",
-        "suboffice": "Kasba ",
-        "postcode": "3460 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Kasba",
+      "suboffice": "Kasba",
+      "postcode": "3460 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Kasba ",
-        "suboffice": "Kuti ",
-        "postcode": "3461 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Kasba",
+      "suboffice": "Kuti",
+      "postcode": "3461 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Jibanganj ",
-        "postcode": "3419 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Jibanganj",
+      "postcode": "3419 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Kaitala ",
-        "postcode": "3417 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Kaitala",
+      "postcode": "3417 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Laubfatehpur ",
-        "postcode": "3411 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Laubfatehpur",
+      "postcode": "3411 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Nabinagar ",
-        "postcode": "3410 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Nabinagar",
+      "postcode": "3410 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Rasullabad ",
-        "postcode": "3412 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Rasullabad",
+      "postcode": "3412 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Ratanpur ",
-        "postcode": "3414 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Ratanpur",
+      "postcode": "3414 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Salimganj ",
-        "postcode": "3418 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Salimganj",
+      "postcode": "3418 "
     },
     {
-      "en": {
-        "division": "Chattogram",
-        "district": "Brahmanbaria ",
-        "thana": "Nabinagar ",
-        "suboffice": "Shahapur ",
-        "postcode": "3415 "
-      }
+      "division": "Chattogram",
+      "district": "Brahmanbaria",
+      "thana": "Nabinagar",
+      "suboffice": "Shahapur",
+      "postcode": "3415 "
     }
   ]
 }
