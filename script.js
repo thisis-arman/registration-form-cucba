@@ -1,3 +1,37 @@
+
+ /* const firebaseConfig = {
+   apiKey: "AIzaSyDi-6wXeF01IjBn2F0GgcYqRhb2xppjemw",
+   authDomain: "cucbaform.firebaseapp.com",
+   projectId: "cucbaform",
+   storageBucket: "cucbaform.appspot.com",
+   messagingSenderId: "407016342571",
+   appId: "1:407016342571:web:d572ce68d285534b0d566e",
+   measurementId: "G-HFY2J0DGCY",
+ };
+
+
+// Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var db = firebase.firestore(); */
+
+// Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDi-6wXeF01IjBn2F0GgcYqRhb2xppjemw",
+    authDomain: "cucbaform.firebaseapp.com",
+    projectId: "cucbaform",
+    storageBucket: "cucbaform.appspot.com",
+    messagingSenderId: "407016342571",
+    appId: "1:407016342571:web:d572ce68d285534b0d566e",
+    measurementId: "G-HFY2J0DGCY",
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Initialize Firestore
+  const db = firebase.firestore();
+
 $(document).ready(function () {
   // Function to fetch district data
 
@@ -224,10 +258,13 @@ $(document).ready(function () {
             }
         });
 
+  
+  
         // Click event on the crop button
         $(cropButton).click(function () {
             // Get the cropped data (base64 encoded)
-            var croppedDataUrl = cropper.getCroppedCanvas().toDataURL();
+          var croppedDataUrl = cropper.getCroppedCanvas().toDataURL();
+          uploadImageToFirestore(croppedDataUrl)
 
             // Now you can use 'croppedDataUrl' as needed
             console.log('Cropped Image Data URL:', croppedDataUrl);
@@ -254,5 +291,46 @@ $(document).ready(function () {
                 cropper = null;
             }
         });
+  
+   // Function to upload the image to Firestore and retrieve the URL
+      function uploadImageToFirestore(dataUrl) {
+            var storageRef = firebase.storage().ref();
+            var imageRef = storageRef.child('images/' + new Date().getTime() + '.jpg');
+
+            // Convert the base64 data URL to a Blob
+            var byteString = atob(dataUrl.split(',')[1]);
+            var ab = new ArrayBuffer(byteString.length);
+            var ia = new Uint8Array(ab);
+
+            for (var i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+
+            var blob = new Blob([ab], { type: 'image/jpeg' });
+
+            // Upload the Blob to Firestore Storage
+            imageRef.put(blob).then(function (snapshot) {
+                console.log('Image uploaded to Firestore Storage');
+
+                // Get the download URL
+                imageRef.getDownloadURL().then(function (downloadURL) {
+                    console.log('Image download URL:', downloadURL);
+
+                    // Save the URL to Firestore Database or perform other actions as needed
+                    db.collection('images').add({
+                        url: downloadURL,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    }).then(function (docRef) {
+                        console.log('Document written with ID:', docRef.id);
+                    }).catch(function (error) {
+                        console.error('Error adding document:', error);
+                    });
+                }).catch(function (error) {
+                    console.error('Error getting download URL:', error);
+                });
+            }).catch(function (error) {
+                console.error('Error uploading image:', error);
+            });
+        }
   // TESTING THE POST METHOD
 });
